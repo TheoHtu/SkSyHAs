@@ -7,73 +7,55 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <title>Add TODO</title>
         <style>
-            input[type="text"]{
+            span.input-group-text{
                 background-color:#2d3338;
-                border-top-style: hidden;
-                border-right-style: hidden;
-                border-left-style: hidden;
-                border-bottom-style: hidden;
-                width: 100%;
-                color: white;
-            }
-            input[type="text"]:focus{
-                background-color: #454d55;
                 color:white;
+                border-color: #55595c;
             }
-            input[type="number"]{
+            textarea.TODO{
                 background-color:#2d3338;
-                border-top-style: hidden;
-                border-right-style: hidden;
-                border-left-style: hidden;
-                border-bottom-style: hidden;
-                width: 30%;
-                color: white;
-            }
-            input[type="number"]:focus{
-                background-color: #454d55;
                 color:white;
+                border-color: #55595c;
+                min-height: 76px;
             }
-            input[type="date"]{
+            textarea.TODO:focus{
+                background-color:#353b3f;
+                color:white;
+                border-color: #55595c;
+            }
+            input.datum{
                 background-color:#2d3338;
-                border-top-style: hidden;
-                border-right-style: hidden;
-                border-left-style: hidden;
-                border-bottom-style: hidden;
-                width: 30%;
-                color: white;
-            }
-            input[type="date"]:focus{
-                background-color: #454d55;
                 color:white;
-            }
-            button.add{
-                color:white;
-                background-color: #2d3338 ;
-                width:120px;
-                border: 0px transparent;
-                border-radius: 10px;
-                padding: 10px;
-            }
-            button.add:hover{
-                background-color: #606468;
-            }
-            input.TODO{
-                width: 100%;
-                margin-bottom: 10px;
-                border-radius: 10px;
-                padding: 10px;
-            }
-            input.date{
-                width: 160px;
-                border-radius: 10px;
-                margin-bottom: 10px;
+                border: 1px solid #55595c;
+                border-radius: 0px 5px 5px 0px;
+                width:150px;
                 text-align: right;
-                padding: 10px;
+            }
+            input.datum:focus{
+                background-color: #454d55;
+                color:white;
+                border: 1px solid #55595c;
             }
             input.fort{
-                width: 70px;
-                border-radius: 10px;
-                padding: 10px;
+                background-color:#2d3338;
+                color:white;
+                border: 1px solid #55595c;
+                width:70px;
+                text-align: right;
+            }
+            input.fort:focus{
+                background-color: #454d55;
+            }
+            button.add{
+                background-color: #2d3338 ;
+                color:white;
+                border: 1px solid #55595c;
+                border-radius: 5px;
+                width:100px;
+                padding: 5px;
+            }
+            button.add:hover{
+                background-color: #454d55;
             }
         </style>
     </head>
@@ -98,12 +80,33 @@
                         <button class="header">Impressum</button>
                     </form>
             </div>
-        </div>
-        <br>   
-            TODO:<input type="text" class="TODO" placeholder="Titel"><br>
-            Deadline:  <input type="date" class="date"><br>
-            <input type="number" class="fort" min="0" max="100">%<br>
-        <br>
+        </div><br>
+
+        <h2>TODO Hinzufügen</h2><br>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Titel:</span>
+            </div>
+            <textarea class="form-control TODO"></textarea>
+        </div><br>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Deadline:</span>
+            </div>
+            <input type="date" class="datum" required="required">
+        </div><br>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Fortschritt:</span>
+            </div>
+            <input type="number" class="fort" min="0" max="100">
+            <div class="input-group-append">
+                <span class="input-group-text">%</span>
+            </div>
+        </div><br>
+        
         <form action="home.html"><button class="add">Hinzufügen</button></form>
+
     </body>
 </html> 

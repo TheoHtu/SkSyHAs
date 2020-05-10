@@ -7,21 +7,27 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <title>Editieren eines TODOs</title>
         <style>
-            textarea.edit{
+            textarea.titel{
                 width:100%;
-                resize:none;
+                resize:vertical;
+                min-height: 56px;
                 background-color:#454d55;
                 color:white;
-                border:solid 1px white
+                border:solid 1px #55595c
             }
             input.fort{
                 width:65%;
                 height:30px;
-                resize:none;
                 background-color:#454d55;
                 color:white;
-                border:solid 1px white;
-                
+                border:solid 1px #55595c;
+            }
+            input.datum{
+                width:130px;
+                height:30px;
+                background-color:#454d55;
+                color:white;
+                border:solid 1px #55595c;
             }
         </style>
     </head>
@@ -76,13 +82,13 @@
             <tr>
                 <td>Ein Impressum erstellen</td>
                 <td>13. Mai 2030</td>
-                <td>20%</td>
+                <td>100%</td>
                 <td><button class="editdel">Bearbeiten</button></td>
                 <td><button class="editdel">Löschen</button></td>
             </tr>
             <tr>
-                <td><textarea type="text" class="edit"></textarea></td>
-                <td><textarea type="text" class="edit"></textarea></td>
+                <td><textarea type="text" class="titel"></textarea></td>
+                <td><input type="date" class="datum"></textarea></td>
                 <td><input type="number" min ="0" max="100" class="fort"></textarea>%</td>
                 <td><form action="editdemo.html">
                     <button class="editdel">Bearbeiten</button>
