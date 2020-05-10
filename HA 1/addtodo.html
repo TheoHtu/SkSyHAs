@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Add TODO</title>
+        <style>
+            input[type="text"]{
+                background-color:#2d3338;
+                border-top-style: hidden;
+                border-right-style: hidden;
+                border-left-style: hidden;
+                border-bottom-style: hidden;
+                width: 100%;
+                color: white;
+            }
+            input[type="text"]:focus{
+                background-color: #454d55;
+                color:white;
+            }
+            input[type="number"]{
+                background-color:#2d3338;
+                border-top-style: hidden;
+                border-right-style: hidden;
+                border-left-style: hidden;
+                border-bottom-style: hidden;
+                width: 30%;
+                color: white;
+            }
+            input[type="number"]:focus{
+                background-color: #454d55;
+                color:white;
+            }
+            input[type="date"]{
+                background-color:#2d3338;
+                border-top-style: hidden;
+                border-right-style: hidden;
+                border-left-style: hidden;
+                border-bottom-style: hidden;
+                width: 30%;
+                color: white;
+            }
+            input[type="date"]:focus{
+                background-color: #454d55;
+                color:white;
+            }
+            button.add{
+                color:white;
+                background-color: #2d3338 ;
+                width:120px;
+                border: 0px transparent;
+                border-radius: 10px;
+                padding: 10px;
+            }
+            button.add:hover{
+                background-color: #606468;
+            }
+            input.TODO{
+                width: 100%;
+                margin-bottom: 10px;
+                border-radius: 10px;
+                padding: 10px;
+            }
+            input.date{
+                width: 160px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+                text-align: right;
+                padding: 10px;
+            }
+            input.fort{
+                width: 70px;
+                border-radius: 10px;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-sm">
+                <td class="header" style="margin-left: 10px;">
+                    <form action="home.html">
+                        <button class="header">Übersicht</button>
+                    </form>
+                </td>
+            </div>
+            <div class="col-sm">
+                <td class="header">
+                    <form action="addtodo.html">
+                        <button class="header">Anlegen</button>
+                    </form>
+            </div>
+            <div class="col-sm">
+                <td class="header">
+                    <form action="impressum.html">
+                        <button class="header">Impressum</button>
+                    </form>
+            </div>
+        </div>
+        <br>   
+            TODO:<input type="text" class="TODO" placeholder="Titel"><br>
+            Deadline:  <input type="date" class="date"><br>
+            <input type="number" class="fort" min="0" max="100">%<br>
+        <br>
+        <form action="home.html"><button class="add">Hinzufügen</button></form>
+    </body>
+</html> 

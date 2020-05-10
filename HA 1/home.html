@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>TODOs</title>
+
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-sm">
+                <td class="header" style="margin-left: 10px;">
+                    <form action="home.html">
+                        <button class="header">Übersicht</button>
+                    </form>
+                </td>
+            </div>
+            <div class="col-sm">
+                <td class="header">
+                    <form action="addtodo.html">
+                        <button class="header">Anlegen</button>
+                    </form>
+            </div>
+            <div class="col-sm">
+                <td class="header">
+                    <form action="impressum.html">
+                        <button class="header">Impressum</button>
+                    </form>
+            </div>
+        </div>
+        <br>
+        <table class="table table-hover table-dark" style="width: 100%;margin-right: 10px;">
+            <thead style="background-color:#2d3338">
+              <tr>
+                <th style="width:auto;">TODO</th>
+                <th style="width:15%;">Deadline</th>
+                <th style="width:5%;">Fortschritt</th>
+                <th style="width:2%;"></th>
+                <th style="width:2%;"></th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Beispielseite mit dem Bootstrap Framework anlegen</td>
+                <td>25. April 2020</td>
+                <td>100%</td>
+                <td><button class="editdel">Bearbeiten</button></td>
+                <td><button class="editdel">Löschen</button></td>
+            </tr>
+            <tr>
+                <td>Seite zum TODO anlegen einfügen</td>
+                <td>08. Mai 2020</td>
+                <td>100%</td>
+                <td><button class="editdel">Bearbeiten</button></td>
+                <td><button class="editdel">Löschen</button></td>
+            </tr>
+            <tr>
+                <td>Ein Impressum erstellen</td>
+                <td>13. Mai 2030</td>
+                <td>20%</td>
+                <td><button class="editdel">Bearbeiten</button></td>
+                <td><button class="editdel">Löschen</button></td>
+            </tr>
+            <tr>
+                <td>Demonstrationsseite zum erstellen eines TODOs</td>
+                <td>14. Dezember 2077</td>
+                <td>-200%</td>
+                <td><form action="editdemo.html">
+                    <button class="editdel">Bearbeiten</button>
+                    </form>
+                </td>
+                <td><button class="editdel">Löschen</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
