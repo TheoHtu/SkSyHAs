@@ -24,7 +24,7 @@
         color:white;
         border-color: #55595c;
     }
-    input.datum{
+    input.add_datum{
         background-color:#2d3338;
         color:white;
         border: 1px solid #55595c;
@@ -32,19 +32,19 @@
         width:150px;
         text-align: right;
     }
-    input.datum:focus{
+    input.add_datum:focus{
         background-color: #454d55;
         color:white;
         border: 1px solid #55595c;
     }
-    input.fort{
+    input.add_fort{
         background-color:#2d3338;
         color:white;
         border: 1px solid #55595c;
         width:70px;
         text-align: right;
     }
-    input.fort:focus{
+    input.add_fort:focus{
         background-color: #454d55;
     }
     button.add{
@@ -90,21 +90,21 @@
         <div class="input-group-prepend">
             <span class="input-group-text">Titel:</span>
         </div>
-        <textarea class="form-control TODO" required="required" name="name"></textarea>
+        <textarea class="form-control TODO" required="required" name="name" maxlength="160"></textarea>
     </div><br>
     
     <div class="input-group">
         <div class="input-group-prepend">
             <span class="input-group-text">Deadline:</span>
         </div>
-        <input name="deadline" type="date" class="datum" required="required">
+        <input name="deadline" type="date" class="add_datum" required="required" min='1999-01-01' max='9999-12-31'>
     </div><br>
 
     <div class="input-group">
         <div class="input-group-prepend">
             <span class="input-group-text">Fortschritt:</span>
         </div>
-        <input name="fortschritt" type="number" class="fort" min="0" max="100" default="0">
+        <input name="fortschritt" type="number" class="add_fort" min="0" max="100" default="0">
         <div class="input-group-append">
             <span class="input-group-text">%</span>
         </div>

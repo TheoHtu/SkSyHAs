@@ -11,7 +11,7 @@ class Main(generic.ListView):
     template_name = 'TODO/main.html'
     context_object_name = 'TODO_list'
     def get_queryset(self):
-        return TODO.objects.all()
+        return TODO.objects.order_by('deadline')
 
 class Add(generic.CreateView):
     model = TODO
@@ -25,7 +25,7 @@ def new_todo(request):
     name = request.POST['name']
     deadline = request.POST['deadline']
     fortschritt = request.POST['fortschritt']
-    print(request.POST)
+    print("added " + request.POST['name'])
     if fortschritt == '':
         fortschritt = 0
     td = TODO(name=name, deadline=deadline, fortschritt=fortschritt)
@@ -33,9 +33,23 @@ def new_todo(request):
     return redirect('main')
 
 def edit(request):
-    for i in request.POST:
-        print(i)
-    return redirect('main')
+    #context_object_name = 'TODO_list'
+
+    print("editing "+ request.POST['id'])
+    return render(request,'TODO/main.html',{'TODO_list':TODO.objects.order_by('deadline'),'editid':int(request.POST['id'])})
+
+def save(request):
+    id = request.POST['id']
+    try:
+        td = TODO.objects.get(id=id)
+    except:
+        return redirect('main')
+    else:
+        td.name = request.POST['name']
+        td.deadline = request.POST['deadline']
+        td.fortschritt = request.POST['fortschritt']
+        td.save()
+        return redirect('main')
 
 def delete(request):
     id = request.POST['id']
@@ -44,6 +58,7 @@ def delete(request):
     except:
         return redirect('main')
     else:
+        print("deleted "+id)
         td.delete()
         return redirect('main')
     

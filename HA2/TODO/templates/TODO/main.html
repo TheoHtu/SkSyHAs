@@ -33,26 +33,58 @@
     <table class="table table-hover table-dark" style="width: 100%;margin-right: 10px;">
         <thead style="background-color:#2d3338">
             <tr>
-            <th style="width:auto">TODO</th>
-            <th style="width:100px">Deadline</th>
+            <th style="width:100%">TODO</th>
+            <th style="width:150px">Deadline</th>
             <th style="width:100px">Fortschritt</th>
             <th style="width:5%;"></th>
             <th style="width:5%;"></th>
             </tr>
         </thead>
         <tbody>
+        {% if request.method == 'POST' %}
         {% for todo in TODO_list %}
-        <tr>
-            <td>{{ todo.name }}</td>
-            <td>{{ todo.deadline|date:'d.m.Y' }}</td>
-            <td style="text-align:center">{{ todo.fortschritt }} %</td>
+            {% if todo.id == editid %}
+                <tr>
+                    <form action="{% url 'save' %}" method="post">{% csrf_token %}
+                        <td><textarea type="text" class="titel" name="name" required="required" maxlength="160">{{ todo.name }}</textarea></td>
+                        <td><input type="date" class="datum" name = "deadline" required="required" min='1999-01-01' max='9999-12-31' value={{ todo.deadline|date:'Y-m-d' }} ></td>
+                        <td><input type="number" class="fort" name = "fortschritt" min ="0" max="100" value={{ todo.fortschritt }}> %</td>
 
-            <td><button class="editdel">Bearbeiten</button></td>
+                        <td><button name="id" value="{{ todo.id }}" class="editdel">Speichern</button></td>
+                    </form>
 
-            <form action="{% url 'delete' %}" method="post">{% csrf_token %}
-            <td><button name="id" value="{{ todo.id }}" class="editdel" type="submit">Löschen</button></td></form>
-        </tr>
+                    <form action="{% url 'delete' %}" method="post">{% csrf_token %}
+                    <td><button name="id" value="{{ todo.id }}" class="editdel" type="submit">Löschen</button></td></form>
+                </tr>
+            {% else %}
+                <tr>
+                    <td>{{ todo.name }}</td>
+                    <td>{{ todo.deadline|date:'d.m.Y' }}</td>
+                    <td style="text-align:center">{{ todo.fortschritt }} %</td>
+
+                    <form action="{% url 'edit' %}" method="post">{% csrf_token %}
+                    <td><button name="id" value="{{ todo.id }}" class="editdel">Bearbeiten</button></td></form>
+
+                    <form action="{% url 'delete' %}" method="post">{% csrf_token %}
+                    <td><button name="id" value="{{ todo.id }}" class="editdel" type="submit">Löschen</button></td></form>
+                </tr>
+            {% endif %}
         {% endfor %}
+        {% else %}
+        {% for todo in TODO_list %}
+            <tr>
+                <td>{{ todo.name }}</td>
+                <td>{{ todo.deadline|date:'d.m.Y' }}</td>
+                <td style="text-align:center">{{ todo.fortschritt }} %</td>
+
+                <form action="{% url 'edit' %}" method="post">{% csrf_token %}
+                <td><button name="id" value="{{ todo.id }}" class="editdel">Bearbeiten</button></td></form>
+
+                <form action="{% url 'delete' %}" method="post">{% csrf_token %}
+                <td><button name="id" value="{{ todo.id }}" class="editdel" type="submit">Löschen</button></td></form>
+            </tr>
+        {% endfor %}
+        {% endif %}
         </tbody>
     </table>
 </body>
