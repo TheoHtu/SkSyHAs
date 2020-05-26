@@ -1,0 +1,116 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'TODO/style.css' %}">
+
+
+<title>Add TODO</title>
+<style>
+    span.input-group-text{
+        background-color:#2d3338;
+        color:white;
+        border-color: #55595c;
+    }
+    textarea.TODO{
+        background-color:#2d3338;
+        color:white;
+        border-color: #55595c;
+        min-height: 76px;
+    }
+    textarea.TODO:focus{
+        background-color:#353b3f;
+        color:white;
+        border-color: #55595c;
+    }
+    input.datum{
+        background-color:#2d3338;
+        color:white;
+        border: 1px solid #55595c;
+        border-radius: 0px 5px 5px 0px;
+        width:150px;
+        text-align: right;
+    }
+    input.datum:focus{
+        background-color: #454d55;
+        color:white;
+        border: 1px solid #55595c;
+    }
+    input.fort{
+        background-color:#2d3338;
+        color:white;
+        border: 1px solid #55595c;
+        width:70px;
+        text-align: right;
+    }
+    input.fort:focus{
+        background-color: #454d55;
+    }
+    button.add{
+        background-color: #2d3338 ;
+        color:white;
+        border: 1px solid #55595c;
+        border-radius: 5px;
+        width:100px;
+        padding: 5px;
+    }
+    button.add:hover{
+        background-color: #454d55;
+    }
+</style>
+<body>
+    <div class="row">
+        <div class="col-sm">
+            <td class="header" style="margin-left: 10px;">
+                <form action="{% url 'main' %}">
+                    <button class="header">Übersicht</button>
+                </form>
+            </td>
+        </div>
+        <div class="col-sm">
+            <td class="header">
+                <form action="{% url 'add' %}">
+                    <button class="header">Anlegen</button>
+                </form>
+        </div>
+        <div class="col-sm">
+            <td class="header">
+                <form action="{% url 'imp' %}">
+                    <button class="header">Impressum</button>
+                </form>
+        </div>
+    </div><br>
+
+    <h2>TODO Hinzufügen</h2><br>
+    
+    <form action="{% url 'create' %}" method="post">
+    {% csrf_token %}
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Titel:</span>
+        </div>
+        <textarea class="form-control TODO" required="required" name="name"></textarea>
+    </div><br>
+    
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Deadline:</span>
+        </div>
+        <input name="deadline" type="date" class="datum" required="required">
+    </div><br>
+
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Fortschritt:</span>
+        </div>
+        <input name="fortschritt" type="number" class="fort" min="0" max="100" default="0">
+        <div class="input-group-append">
+            <span class="input-group-text">%</span>
+        </div>
+    </div><br>
+    
+    <button class="add" type="submit">Hinzufügen</button>
+    </form>
+
+</body>

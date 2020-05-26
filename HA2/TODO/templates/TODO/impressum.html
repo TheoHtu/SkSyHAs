@@ -1,0 +1,48 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'TODO/style.css' %}">
+
+<title>Impressum</title>
+<style>
+    body{
+        text-align: center;
+    }
+    a{
+        color:wheat;
+        
+    }
+    a:hover{
+        color:salmon;
+    }
+</style>
+<body>
+    <div class="row">
+        <div class="col-sm">
+            <td class="header" style="margin-left: 10px;">
+                <form action="{% url 'main' %}">
+                    <button class="header">Übersicht</button>
+                </form>
+            </td>
+        </div>
+        <div class="col-sm">
+            <td class="header">
+                <form action="{% url 'add' %}">
+                    <button class="header">Anlegen</button>
+                </form>
+        </div>
+        <div class="col-sm">
+            <td class="header">
+                <form action="{% url 'imp' %}">
+                    <button class="header">Impressum</button>
+                </form>
+        </div>
+    </div>
+    <br>
+    <h2>Impressum</h2><br>
+    Theodor Wilhelm Heuner<br>
+    Berkan Capur<br><br>
+    <u><a href="https://github.com/TheoHtu/SkSyHAs">GitHub Repository</a></u>
+</body>
